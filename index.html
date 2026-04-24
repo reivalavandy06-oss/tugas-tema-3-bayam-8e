@@ -3,56 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Info Bayam Cabut - Tugas Tema 3</title>
+  <title>Info Bayam Cabut - Tugas Tema 3 - 8E</title>
+  
+  <meta property="og:title" content="Tugas Tema 3: Bayam Cabut - Kelas 8E">
+  <meta property="og:description" content="Informasi lengkap Bayam Cabut oleh Kelompok 8E">
+  <meta name="theme-color" content="#27ae60">
+  <link rel="icon" href="https://em-content.zobj.net/source/apple/354/seedling_1f331.png">
+  
+  <!-- TAMBAHAN NO. 4: Google Fonts Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --hijau: #27ae60;
+      --hijau-tua: #1e8449;
+      --bg: #E8F5E9;
+      --card: #ffffff;
+      --text: #2c3e50;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --card: #1e1e1e;
+        --text: #e0e0e0;
+      }
+      body { background: var(--bg) !important; }
+      .info-box { background: #2a2a2a !important; }
+      h2 { background: #2a2a2a !important; }
+    }
+    html { scroll-behavior: smooth; }
     body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      /* TAMBAHAN NO. 4: Ganti font jadi Poppins */
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
       background: linear-gradient(135deg, #E8F5E9 0%, #DDE7DD 100%);
       background-attachment: fixed;
       margin: 0; 
       padding: 15px; 
       line-height: 1.7;
-      color: #2c3e50;
+      color: var(--text);
+    }
+    body::after {
+      content: "Reival Avandy - 8E";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.15;
+      font-size: 12px;
+      z-index: -1;
     }
     .wadah { 
-      background: white; 
-      max-width: 600px; 
+      background: var(--card); 
+      max-width: 700px; 
       margin: auto; 
       padding: 20px; 
       border-radius: 15px; 
       box-shadow: 0 4px 20px rgba(39, 174, 96, 0.15);
-      border-top: 5px solid #27ae60;
+      border-top: 5px solid var(--hijau);
+    }
+    .pembuat {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--hijau-tua);
+      margin-bottom: 5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
     h1 { 
-      color: #27ae60; 
+      color: var(--hijau); 
       text-align: center; 
-      margin: 10px 0 20px 0; 
+      margin: 5px 0 20px 0; 
       font-size: 1.8rem;
+      font-weight: 600;
     }
     h2 { 
-      color: #1e8449; 
+      color: var(--hijau-tua); 
       background: #e8f5e9; 
       padding: 8px 12px; 
       border-radius: 6px; 
       font-size: 1.1rem;
-      margin-top: 20px;
-      border-left: 4px solid #27ae60;
+      margin-top: 25px;
+      border-left: 4px solid var(--hijau);
+      font-weight: 600;
     }
+    .daftar-isi {
+      background: #f8fff9;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px dashed var(--hijau);
+      margin-bottom: 20px;
+    }
+    .daftar-isi a {
+      display: block;
+      color: var(--hijau-tua);
+      text-decoration: none;
+      margin: 5px 0;
+      font-weight: 500;
+    }
+    .daftar-isi a:hover { text-decoration: underline; }
     .gambar-utama {
       width: 100%;
       max-width: 500px;
       display: block;
       margin: 15px auto;
       border-radius: 10px;
-      border: 3px solid #27ae60;
+      border: 3px solid var(--hijau);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .info-box { 
       background: #f8fff9; 
       padding: 12px; 
-      border-left: 4px solid #27ae60; 
+      border-left: 4px solid var(--hijau); 
       margin: 15px 0; 
       border-radius: 4px; 
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--hijau);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    @media (prefers-color-scheme: dark) {
+      tr:nth-child(even) { background-color: #2a2a2a; }
+      th, td { border-color: #444; }
     }
     ul { padding-left: 20px; }
     li { margin-bottom: 8px; }
@@ -60,8 +145,8 @@
       text-align: center; 
       margin-top: 30px; 
       padding-top: 15px;
-      border-top: 2px dashed #27ae60; 
-      color: #2c3e50; 
+      border-top: 2px dashed var(--hijau); 
+      color: var(--text); 
       font-size: 14px; 
     }
     .anggota {
@@ -69,65 +154,112 @@
       display: inline-block;
       margin-top: 10px;
     }
-    b { color: #1e8449; }
+    b { color: var(--hijau-tua); font-weight: 600; }
+    .back-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--hijau);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    @media print {
+      body { background: white !important; }
+      .back-top, body::after { display: none !important; }
+      .wadah { box-shadow: none; border: 1px solid #ccc; }
+      h2 { background: #f1f1f1 !important; }
+    }
   </style>
 </head>
-<body>
+<body id="top">
   <div class="wadah">
-    <h1>🌱 BAYAM CABUT</h1>
+    <div class="pembuat">by: Reival Avandy P. 😎</div>
+    <h1>🌱 BAYAM CABUT 🌱</h1>
     
+    <div class="daftar-isi">
+      <b>Daftar Isi:</b>
+      <a href="#nama">1. Nama Tanaman</a>
+      <a href="#jenis">2. Jenis Tanaman</a>
+      <a href="#manfaat">3. Manfaat & Kandungan Gizi</a>
+      <a href="#perawatan">4. Cara Perawatan</a>
+      <a href="#daerah">5. Daerah Penyebaran</a>
+      <a href="#biak">6. Cara Berkembang Biak</a>
+      <a href="#pustaka">7. Daftar Pustaka</a>
+    </div>
+    
+    <!-- TAMBAHAN NO. 3: loading="lazy" -->
     <img src="https://i.postimg.cc/Lsn4hjZM/IMG-20260417-104123.jpg" 
          alt="Kebun Bayam Cabut" 
-         class="gambar-utama">
+         class="gambar-utama"
+         loading="lazy">
     <p style="text-align:center; font-size:0.8rem; color:#666; margin-top:-10px;">Dokumentasi Tanaman Bayam Cabut</p>
     
-    <h2>1. Nama Tanaman (Lokal dan Ilmiah)</h2>
+    <h2 id="nama">1. Nama Tanaman (Lokal dan Ilmiah)</h2>
     <p><b>Nama Lokal:</b> Bayam Cabut, sering juga disebut Bayam Petik atau Bayam Hijau karena daunnya yang dominan berwarna hijau segar. Di beberapa daerah Sunda disebut Bayam Lemah dan di Jawa disebut Bayem.<br>
        <b>Nama Ilmiah:</b> <i>Amaranthus tricolor L.</i> Nama "tricolor" mengacu pada beberapa varietasnya yang memiliki tiga warna pada daun yaitu hijau, merah, dan kuning, meskipun jenis yang umum dibudidayakan adalah yang berdaun hijau.</p>
     
-    <h2>2. Jenis Tanaman</h2>
+    <h2 id="jenis">2. Jenis Tanaman</h2>
     <p>Bayam cabut termasuk ke dalam <b>jenis tanaman sayuran daun semusim</b> atau <i>annual plant</i> dari keluarga Amaranthaceae. Disebut semusim karena siklus hidupnya dari mulai tumbuh dari biji hingga mati setelah berbunga dan berbuah hanya berlangsung dalam satu musim tanam. Umurnya sangat pendek, yaitu hanya sekitar 25 sampai 35 hari dari awal penaburan benih hingga sudah bisa dipanen. Karena pertumbuhannya cepat, tanaman ini sangat cocok untuk ditanam secara berkelanjutan.</p>
     
     <div class="info-box">
-      <h2>3. Manfaat</h2>
-      <ul>
-        <li><b>Sumber Zat Besi (Fe) Tinggi:</b> Dalam 100 gram bayam cabut terkandung sekitar 3,9 mg zat besi. Zat besi ini berfungsi utama untuk pembentukan sel darah merah, sehingga sangat efektif untuk mencegah dan mengatasi penyakit anemia atau kurang darah yang gejalanya lemas, pusing, dan wajah pucat.</li>
-        <li><b>Kaya Vitamin A untuk Kesehatan Mata:</b> Mengandung 2917 IU Vitamin A yang berperan penting menjaga kesehatan kornea mata, mempertajam penglihatan, dan mencegah penyakit rabun senja atau kesulitan melihat saat cahaya redup.</li>
-        <li><b>Vitamin C sebagai Antioksidan:</b> Kandungan vitamin C-nya mencapai 41,1 mg yang berfungsi meningkatkan sistem kekebalan tubuh agar tidak mudah sakit, serta membantu mempercepat proses penyembuhan luka di kulit.</li>
-        <li><b>Vitamin K untuk Tulang dan Darah:</b> Memiliki kadar vitamin K sangat tinggi yaitu 1140 mcg. Vitamin K dibutuhkan tubuh untuk proses pembekuan darah saat terluka dan juga membantu proses pembentukan serta pemeliharaan tulang yang kuat.</li>
-        <li><b>Serat Pangan Tinggi:</b> Seratnya membantu melancarkan sistem pencernaan, menambah volume feses, sehingga dapat mencegah sembelit atau susah buang air besar dan penyakit wasir.</li>
-        <li><b>Mengandung Antioksidan Antosianin:</b> Zat warna merah keunguan yang terdapat pada batang dan tulang daunnya adalah antioksidan jenis antosianin. Fungsinya untuk menangkal radikal bebas di dalam tubuh yang dapat memicu kerusakan sel dan penyakit kronis seperti kanker.</li>
-        <li><b>Sumber Kalsium dan Magnesium:</b> Dua mineral ini bekerja sama untuk membantu pertumbuhan dan kepadatan tulang serta gigi, sehingga baik dikonsumsi oleh anak-anak dalam masa pertumbuhan dan orang dewasa untuk mencegah pengeroposan tulang atau osteoporosis.</li>
-        <li><b>Mengandung Asam Folat:</b> Asam folat atau Vitamin B9 sangat penting, terutama bagi ibu hamil, karena berperan dalam pembentukan sel-sel baru dan membantu perkembangan sistem saraf janin, sehingga dapat mencegah cacat tabung saraf pada bayi.</li>
-      </ul>
+      <h2 id="manfaat">3. Manfaat & Kandungan Gizi</h2>
+      <p>Berikut kandungan gizi dalam 100 gram bayam cabut:</p>
+      <table>
+        <tr><th>Zat Gizi</th><th>Jumlah</th><th>Fungsi Utama</th></tr>
+        <tr><td>Zat Besi (Fe)</td><td>3.9 mg</td><td>Cegah anemia, bentuk sel darah merah</td></tr>
+        <tr><td>Vitamin A</td><td>2917 IU</td><td>Jaga kesehatan mata, cegah rabun senja</td></tr>
+        <tr><td>Vitamin C</td><td>41.1 mg</td><td>Tingkatkan imun, percepat sembuh luka</td></tr>
+        <tr><td>Vitamin K</td><td>1140 mcg</td><td>Pembekuan darah & kesehatan tulang</td></tr>
+        <tr><td>Kalsium</td><td>166 mg</td><td>Pertumbuhan tulang & gigi</td></tr>
+        <tr><td>Asam Folat</td><td>85 mcg</td><td>Penting untuk ibu hamil & janin</td></tr>
+        <tr><td>Serat Pangan</td><td>0.7 g</td><td>Lancarkan pencernaan, cegah sembelit</td></tr>
+      </table>
+      <p><b>Manfaat Lain:</b> Mengandung antioksidan <b>Antosianin</b> pada batang merahnya yang berfungsi menangkal radikal bebas penyebab kanker.</p>
     </div>
     
-    <h2>4. Cara Perawatan</h2>
+    <h2 id="perawatan">4. Cara Perawatan</h2>
     <ul>
-      <li><b>Media Tanam:</b> Membutuhkan tanah yang gembur, subur, dan kaya akan humus atau bahan organik. Tingkat keasaman (pH) tanah yang ideal untuk pertumbuhannya adalah antara 6 hingga 7. Tanah yang terlalu liat dan padat akan membuat akar sulit berkembang.</li>
-      <li><b>Penyiraman:</b> Harus dilakukan secara rutin 2 kali sehari yaitu pada pagi dan sore hari, terutama saat musim kemarau. Kondisi tanah harus dijaga agar selalu lembab, namun tidak boleh sampai becek atau tergenang air karena dapat menyebabkan busuk akar dan penyakit rebah kecambah.</li>
-      <li><b>Kebutuhan Cahaya:</b> Bayam cabut termasuk tanaman yang sangat butuh sinar matahari penuh langsung. Tanaman harus mendapatkan penyinaran minimal 6 jam sehari agar proses fotosintesis berjalan maksimal, sehingga daun tumbuh lebar dan berwarna hijau pekat.</li>
-      <li><b>Pemupukan:</b> Pemberian pupuk dasar berupa pupuk kandang atau kompos yang sudah matang sangat dianjurkan saat pengolahan tanah awal. Untuk pupuk susulan, dapat diberikan pupuk urea dengan dosis sangat rendah pada saat tanaman berumur 10 hari setelah tanam untuk merangsang pertumbuhan daun. Hindari pemberian urea berlebihan karena dapat membuat tanaman mudah roboh dan busuk.</li>
-      <li><b>Penyiangan Gulma:</b> Gulma atau rumput liar harus dicabut secara rutin seminggu sekali. Gulma merupakan pesaing utama bayam dalam mendapatkan unsur hara, air, dan cahaya matahari, sehingga jika dibiarkan dapat menghambat pertumbuhan.</li>
-      <li><b>Pengendalian Hama & Penyakit:</b> Hama yang sering menyerang adalah ulat grayak yang memakan daun dan kutu daun yang menghisap cairan tanaman. Penyakit yang umum adalah rebah kecambah pada saat tanaman masih muda. Pengendaliannya dapat dilakukan dengan cara mekanis atau menggunakan pestisida nabati yang terbuat dari ekstrak daun pepaya atau daun mimba untuk menjaga keamanan konsumsi.</li>
+      <li><b>Media Tanam:</b> Tanah gembur, subur, kaya humus. pH ideal 6-7. Hindari tanah liat padat.</li>
+      <li><b>Penyiraman:</b> Rutin 2x sehari pagi & sore. Jaga lembab, jangan becek agar akar tidak busuk.</li>
+      <li><b>Cahaya:</b> Butuh sinar matahari penuh langsung, minimal 6 jam/hari agar daun lebar & hijau pekat.</li>
+      <li><b>Pemupukan:</b> Pupuk dasar kompos saat olah tanah. Pupuk susulan urea dosis rendah di hari ke-10. Jangan berlebihan.</li>
+      <li><b>Penyiangan:</b> Cabut gulma rutin 1x seminggu agar tidak rebutan nutrisi.</li>
+      <li><b>Hama & Penyakit:</b> Waspada ulat grayak & kutu daun. Gunakan pestisida nabati dari daun pepaya/mimba agar aman konsumsi.</li>
     </ul>
     
-    <h2>5. Daerah Penyebaran</h2>
-    <p>Tanaman bayam cabut tersebar luas dan dapat tumbuh dengan baik di hampir seluruh wilayah Indonesia. Habitat idealnya adalah di daerah dataran rendah hingga dataran menengah dengan ketinggian 0 sampai 800 meter di atas permukaan laut (mdpl). Sentra budidaya dan produksi terbesarnya terdapat di provinsi-provinsi Pulau Jawa seperti Jawa Barat, Jawa Tengah, dan Jawa Timur, serta di Sumatra Utara. Hal ini karena wilayah-wilayah tersebut memiliki iklim tropis dengan suhu rata-rata 25-35°C dan curah hujan yang cukup merata sepanjang tahun, yang merupakan kondisi paling cocok untuk pertumbuhannya.</p>
+    <h2 id="daerah">5. Daerah Penyebaran</h2>
+    <p>Tersebar luas di seluruh Indonesia, terutama dataran rendah-menengah 0-800 mdpl. Sentra produksi terbesar di Jawa Barat, Jawa Tengah, Jawa Timur, dan Sumatra Utara. Tumbuh optimal di suhu 25-35°C dengan curah hujan merata.</p>
     
-    <h2>6. Cara Berkembang Biaknya</h2>
-    <p>Bayam cabut berkembang biak secara <b>generatif</b>, yaitu melalui biji. Biji bayam cabut berukuran sangat kecil, berbentuk bulat, dan berwarna hitam mengkilap. Cara penanamannya adalah dengan menabur benih secara langsung ke atas bedengan yang sudah disiapkan atau bisa juga disemai terlebih dahulu di tempat lain. Benih akan mulai berkecambah dan tumbuh menjadi tanaman muda dalam waktu 3 sampai 5 hari setelah tanam. Tanaman ini tidak dapat dikembangbiakkan secara vegetatif seperti stek batang atau cangkok. Cara panennya yang khas adalah dengan dicabut hingga beserta akarnya saat tanaman berumur 25-30 hari atau ketika tingginya sudah mencapai 20-25 cm. Dari cara panen inilah muncul sebutan nama "Bayam Cabut". Ciri tanaman yang sudah siap panen adalah daunnya sudah lebar dan mekar sempurna, batangnya masih lunak, serta belum memasuki fase berbunga.</p>
+    <h2 id="biak">6. Cara Berkembang Biaknya</h2>
+    <p>Berkembang biak secara <b>generatif</b> melalui biji yang sangat kecil, bulat, hitam mengkilap. Benih ditabur langsung dan berkecambah 3-5 hari. Tidak bisa stek. Panen dengan cara <b>dicabut beserta akarnya</b> saat umur 25-30 hari atau tinggi 20-25 cm. Ciri siap panen: daun lebar mekar, batang masih lunak, belum berbunga.</p>
+
+    <h2 id="pustaka">7. Daftar Pustaka</h2>
+    <ul>
+      <li>Kementerian Pertanian. 2021. <i>Petunjuk Teknis Budidaya Bayam Organik</i>. Jakarta: Direktorat Jenderal Hortikultura.</li>
+      <li>Tim Bina Karya Tani. 2019. <i>Pedoman Bertanam Sayuran Dataran Rendah</i>. Bandung: Yrama Widya.</li>
+      <li>Wikipedia. 2026. <i>Amaranthus tricolor</i>. Diakses pada 23 April 2026, dari https://id.wikipedia.org/wiki/Bayam</li>
+    </ul>
     
     <div class="footer">
-      <b>TUGAS TEMA 3</b><br>
+      <b>TUGAS TEMA 3✨ </b><br>
       <b>KELAS 8E</b><br>
       <div class="anggota">
         1. Afifah Salsabila Dwi Putri (01)<br>
         2. Anggita Winahyu (04)<br>
-        3. Reival Avandy Priramadhan (23)<br>
+        3. Reival Avandy Priramadhan 😎 (23)<br>
         4. Hanif Cahya Ramadhan (15)<br>
       </div>
     </div>
   </div>
+  
+  <a href="#top" class="back-top">↑</a>
 </body>
-  </html>
+</html>
