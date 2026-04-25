@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Info Bayam Cabut - Tugas Tema 3 - 8E</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -17,100 +17,233 @@
       --card: #ffffff;
       --text: #2c3e50;
       --shadow: rgba(39, 174, 96, 0.15);
+      --furina-blue: #4fb3e8;
+      --furina-blue-tua: #1e88c4;
     }
-    
+
     [data-theme="dark"] {
       --bg: #121212;
       --card: #1e1e1e;
       --text: #e0e0e0;
       --shadow: rgba(0, 0, 0, 0.3);
     }
+    [data-theme="dark"] h2 { background: #2a2a2a !important; }
+    [data-theme="dark"] .daftar-isi { background: #2a2a2a !important; }
+    [data-theme="dark"] .shop-box { background: #1e3a5f !important; }
+    [data-theme="dark"] .info-box-furina { background: #1a2530 !important; }
+    [data-theme="dark"] th, [data-theme="dark"] td { border-color: #3a3a3a; }
+    [data-theme="dark"] .info-box-furina h2 { background: #1e3a5f !important; }
 
-    /* FITUR SMOOTH SCROLL */
-    html { 
-      scroll-behavior: smooth; 
-    }
-
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; word-wrap: break-word; }
-    
-    body { 
-      font-family: 'Poppins', sans-serif; 
+
+    body {
+      font-family: 'Poppins', sans-serif;
       background: var(--bg);
       margin: 0; padding: 10px; line-height: 1.7; color: var(--text);
-      transition: all 0.4s ease;
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+      position: relative;
     }
-    
-    .wadah { 
-      background: var(--card); max-width: 700px; margin: 10px auto; 
-      padding: 15px; border-radius: 12px; box-shadow: 0 4px 20px var(--shadow);
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(79, 179, 232, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(39, 174, 96, 0.08) 0%, transparent 30%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wadah {
+      background: var(--card); max-width: 720px; margin: 10px auto;
+      padding: 20px; border-radius: 16px; box-shadow: 0 4px 30px var(--shadow);
       border-top: 5px solid var(--hijau); width: 100%;
+      position: relative; z-index: 1;
     }
 
-    h1 { color: var(--hijau); text-align: center; margin: 10px 0; font-size: 1.5rem; }
-    h2 { 
-      color: var(--hijau-tua); background: #e8f5e9; padding: 12px; 
-      border-radius: 8px; font-size: 1.1rem; margin-top: 30px; 
-      border-left: 4px solid var(--hijau); font-weight: 600; 
+    h1 {
+      color: var(--hijau); text-align: center; margin: 10px 0; font-size: 1.6rem;
+      display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
     }
-    
-    .daftar-isi { 
-      background: #f8fff9; padding: 15px; border-radius: 10px; 
-      border: 1px dashed var(--hijau); margin-bottom: 20px; 
-    }
-    .daftar-isi b { display: block; margin-bottom: 10px; color: var(--text); }
-    .daftar-isi a { 
-      display: block; color: var(--hijau-tua); text-decoration: none; 
-      margin: 8px 0; font-weight: 500; font-size: 0.95rem; 
-      transition: 0.3s;
-    }
-    .daftar-isi a:hover { transform: translateX(5px); color: var(--hijau); }
 
-    .gambar-utama { 
-      width: 100%; height: auto; border-radius: 10px; 
-      border: 3px solid var(--hijau); margin: 15px 0;
+    h2 {
+      color: var(--hijau-tua); background: #e8f5e9; padding: 12px 16px;
+      border-radius: 10px; font-size: 1.15rem; margin-top: 30px;
+      border-left: 4px solid var(--hijau); font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+      scroll-margin-top: 20px;
     }
-    
-    .table-container { width: 100%; overflow-x: auto; margin: 15px 0; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid #ddd; padding: 12px 10px; text-align: left; }
+
+    h2 .furina-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-4px) rotate(3deg); }
+    }
+
+    .daftar-isi {
+      background: #f8fff9; padding: 18px; border-radius: 12px;
+      border: 1.5px dashed var(--hijau); margin-bottom: 20px; position: relative;
+    }
+    .daftar-isi b { display: block; margin-bottom: 10px; color: var(--text); font-size: 1.05rem; }
+    .daftar-isi a {
+      display: block; color: var(--hijau-tua); text-decoration: none;
+      margin: 8px 0; font-weight: 500; font-size: 0.95rem;
+      transition: 0.3s; padding: 4px 8px; border-radius: 6px;
+    }
+    .daftar-isi a:hover { transform: translateX(8px); color: var(--hijau); background: rgba(39, 174, 96, 0.08); }
+
+    .daftar-isi-furina {
+      position: absolute; top: -25px; right: 10px;
+      width: 65px; height: 65px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .gambar-utama {
+      width: 100%; height: auto; border-radius: 12px;
+      border: 3px solid var(--hijau); margin: 15px 0; display: block;
+    }
+    .gambar-wrapper { position: relative; margin: 15px 0; }
+    .gambar-wrapper .corner-furina {
+      position: absolute; bottom: -15px; right: -10px;
+      width: 80px; height: 80px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+      z-index: 2;
+      animation: bob 3.5s ease-in-out infinite;
+    }
+
+    .table-container { width: 100%; overflow-x: auto; margin: 15px 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--card); }
+    th, td { border: 1px solid #e0e0e0; padding: 12px 10px; text-align: left; }
     th { background-color: var(--hijau); color: white; }
 
-    .shop-box {
-      background: #e1f5fe; border: 2px solid #0288d1; padding: 20px;
-      border-radius: 12px; margin: 30px 0; text-align: center;
+    .info-box-furina {
+      background: #f0f9ff; border: 2px solid var(--furina-blue);
+      border-radius: 14px; padding: 16px; margin: 25px 0; position: relative;
     }
-    .shop-btn {
-      display: inline-block; background: #0288d1; color: white !important; 
-      padding: 12px 25px; border-radius: 30px; text-decoration: none; 
-      font-weight: 600; margin-top: 15px;
+    .info-box-furina h2 {
+      background: #e3f2fd !important;
+      border-left-color: var(--furina-blue) !important;
+      color: var(--furina-blue-tua) !important;
+      margin-top: 0;
     }
 
-    .theme-toggle { 
-      position: fixed; bottom: 20px; right: 20px; 
-      background: var(--hijau); color: white; border: none; 
-      width: 50px; height: 50px; border-radius: 50%; z-index: 1000; 
+    .shop-box {
+      background: #e1f5fe; border: 2px solid #0288d1; padding: 22px;
+      border-radius: 14px; margin: 30px 0; text-align: center;
+      position: relative; overflow: hidden;
     }
+    .shop-box .shop-furina {
+      position: absolute; bottom: -10px; left: 10px;
+      width: 75px; height: 75px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      animation: bob 2.8s ease-in-out infinite;
+    }
+    .shop-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0288d1, #4fb3e8);
+      color: white !important; padding: 12px 28px; border-radius: 30px;
+      text-decoration: none; font-weight: 600; margin-top: 15px;
+      box-shadow: 0 4px 12px rgba(2, 136, 209, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .shop-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(2, 136, 209, 0.45); }
+
+    .theme-toggle {
+      position: fixed; bottom: 20px; right: 20px;
+      color: white; border: none;
+      width: 52px; height: 52px; border-radius: 50%; z-index: 1000;
+      font-size: 1.4rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+      background: var(--hijau);
+    }
+    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+
+    .music-toggle { display: none; }
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
     .fade-in.show { opacity: 1; transform: translateY(0); }
-    
-    .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px dashed var(--hijau); }
+
+    .footer {
+      text-align: center; margin-top: 40px; padding-top: 20px;
+      border-top: 2px dashed var(--hijau); position: relative;
+    }
+    .footer-furina {
+      width: 90px; height: 90px; margin: 0 auto 10px; display: block;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .floating-furina {
+      position: fixed; width: 70px; height: 70px;
+      z-index: 5; pointer-events: none;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      opacity: 0.85;
+    }
+    .floating-furina.f1 { top: 15%; left: 2%; animation: floatA 6s ease-in-out infinite; }
+    .floating-furina.f2 { top: 45%; right: 2%; animation: floatB 7s ease-in-out infinite; }
+    .floating-furina.f3 { bottom: 20%; left: 3%; animation: floatA 5.5s ease-in-out infinite; }
+
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0) rotate(5deg); }
+      50% { transform: translateY(-15px) rotate(-5deg); }
+    }
+
+    @media (max-width: 800px) {
+      .floating-furina { display: none; }
+      h2 .furina-icon { width: 30px; height: 30px; }
+      .daftar-isi-furina { width: 50px; height: 50px; top: -20px; }
+      .gambar-wrapper .corner-furina { width: 60px; height: 60px; }
+    }
+
+    ul { padding-left: 22px; }
+    ul li { margin: 8px 0; }
+    p { margin: 12px 0; }
+
+    .sparkle { display: inline-block; animation: sparkle 1.5s ease-in-out infinite; }
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
   </style>
 </head>
 <body>
 
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="auto">
     <source src="https://files.catbox.moe/w4xqxw.mp3" type="audio/mpeg">
   </audio>
 
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_002.webp" alt="" class="floating-furina f1">
+  <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_007.webp" alt="" class="floating-furina f2">
+  <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_015.webp" alt="" class="floating-furina f3">
+
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle tema">🌙</button>
 
   <div class="wadah">
-    <div style="text-align:center; font-size:0.8rem; color:var(--hijau-tua);" class="fade-in">Project by: Reival Avandy Priramadhan 😎 .</div>
-    <h1 class="fade-in">🌱 LAPORAN LENGKAP BAYAM CABUT 🌱 </h1>
-    
+    <div style="text-align:center; font-size:0.8rem; color:var(--hijau-tua);" class="fade-in">Project by: Reival Avandy P.</div>
+
+    <h1 class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_001.webp" alt="" style="width:42px;height:42px;vertical-align:middle;">
+      🌱 LAPORAN LENGKAP BAYAM CABUT
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_005.webp" alt="" style="width:42px;height:42px;vertical-align:middle;">
+    </h1>
+
     <div class="daftar-isi fade-in">
-      <b>Daftar Isi:</b>
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_003.webp" alt="" class="daftar-isi-furina">
+      <b>📑 Daftar Isi:</b>
       <a href="#nama">1. Nama Tanaman / Nama Ilmiah</a>
       <a href="#jenis">2. Jenis Tanaman</a>
       <a href="#manfaat">3. Manfaat & Kandungan Gizi</a>
@@ -119,17 +252,29 @@
       <a href="#kesimpulan">6. Kesimpulan</a>
       <a href="#belanja">7. Rekomendasi Belanja</a>
     </div>
-    
-    <img src="https://i.postimg.cc/Lsn4hjZM/IMG-20260417-104123.jpg" alt="Bayam" class="gambar-utama fade-in">
-    
-    <h2 id="nama" class="fade-in">1. Nama Tanaman / Nama Ilmiah</h2>
+
+    <div class="gambar-wrapper fade-in">
+      <img src="https://i.postimg.cc/Lsn4hjZM/IMG-20260417-104123.jpg" alt="Bayam" class="gambar-utama">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_008.webp" alt="" class="corner-furina">
+    </div>
+
+    <h2 id="nama" class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_004.webp" alt="" class="furina-icon">
+      1. Nama Tanaman / Nama Ilmiah
+    </h2>
     <p class="fade-in">Tanaman ini secara luas dikenal di masyarakat Indonesia sebagai <b>Bayam Cabut</b>. Namun, jika ditinjau dari sisi botani, tanaman ini memiliki nama ilmiah <b><i>Amaranthus tricolor L.</i></b>. Disebut bayam "cabut" karena kebiasaan petani dan pedagang yang memanennya dengan mencabut seluruh tanaman mulai dari daun, batang, hingga akar-akarnya untuk menjaga kesegaran tanaman sebelum sampai ke tangan konsumen.</p>
-    
-    <h2 id="jenis" class="fade-in">2. Jenis Tanaman</h2>
+
+    <h2 id="jenis" class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_006.webp" alt="" class="furina-icon">
+      2. Jenis Tanaman
+    </h2>
     <p class="fade-in">Bayam cabut termasuk ke dalam kategori <b>sayuran daun semusim</b> (<i>annual plant</i>). Ini berarti seluruh siklus hidupnya, mulai dari pertumbuhan kecambah, pertumbuhan vegetatif, hingga produksi biji, terjadi dalam periode satu tahun atau bahkan lebih singkat. Tanaman ini memiliki karakteristik batang yang lunak (herbaceous), daun yang tipis namun lebar, serta sistem perakaran yang tidak terlalu dalam, menjadikannya sangat cocok ditanam di pekarangan rumah.</p>
-    
-    <div class="info-box fade-in">
-      <h2 id="manfaat">3. Manfaat & Kandungan Gizi</h2>
+
+    <div class="info-box-furina fade-in">
+      <h2 id="manfaat">
+        <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_009.webp" alt="" class="furina-icon">
+        3. Manfaat & Kandungan Gizi
+      </h2>
       <p>Bayam cabut sering dijuluki sebagai "Raja Sayuran" karena kandungan nutrisinya yang luar biasa lengkap untuk kesehatan tubuh manusia:</p>
       <div class="table-container">
         <table>
@@ -146,36 +291,50 @@
       </div>
       <p>Selain gizi di atas, bayam juga mengandung serat tinggi yang sangat baik untuk melancarkan sistem pencernaan dan mendetoks racun dalam tubuh secara alami.</p>
     </div>
-    
-    <h2 id="perawatan" class="fade-in">4. Cara Perawatan Lengkap</h2>
+
+    <h2 id="perawatan" class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_011.webp" alt="" class="furina-icon">
+      4. Cara Perawatan Lengkap
+    </h2>
     <p class="fade-in">Budidaya bayam cabut tergolong mudah namun memerlukan konsistensi agar hasilnya maksimal. Berikut langkah-langkah detail perawatannya:</p>
-    <ul class="fade-in" style="padding-left: 20px;">
+    <ul class="fade-in">
       <li><b>Media Tanam:</b> Menggunakan tanah yang sudah dicampur pupuk kompos atau kandang (perbandingan 2:1). Tanah harus dalam kondisi gembur dan tidak padat agar akar mudah menyerap nutrisi.</li>
       <li><b>Penyiraman Intensif:</b> Tanaman bayam sangat butuh air. Siram secara rutin 2 kali sehari, pagi dan sore. Saat musim kemarau, pastikan tanah tetap lembab namun jangan sampai air menggenang terlalu lama.</li>
       <li><b>Pemupukan Berkala:</b> Untuk mempercepat pertumbuhan daun agar lebar dan hijau, berikan pupuk tambahan (seperti urea atau organik cair) pada saat tanaman memasuki usia 2 minggu.</li>
       <li><b>Pengendalian Hama:</b> Waspadai ulat daun yang sering memakan daun bayam hingga berlubang. Jika ada, segera bersihkan secara manual atau gunakan semprotan air sabun lembut sebagai pestisida alami.</li>
     </ul>
-    
-    <h2 id="daerah" class="fade-in">5. Daerah Penyebaran</h2>
+
+    <h2 id="daerah" class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_013.webp" alt="" class="furina-icon">
+      5. Daerah Penyebaran
+    </h2>
     <p class="fade-in">Bayam cabut adalah tanaman asli daerah tropis yang sangat menyukai sinar matahari penuh. Di Indonesia, tanaman ini tersebar luas dari Sabang sampai Merauke. Ia dapat tumbuh optimal baik di dataran rendah yang panas maupun di dataran tinggi yang sejuk (ketinggian 0 hingga 2000 meter di atas permukaan laut). Kemampuannya beradaptasi di berbagai jenis tanah membuat bayam cabut menjadi sayuran yang paling mudah ditemukan di pasar tradisional mana pun.</p>
-    
-    <h2 id="kesimpulan" class="fade-in">6. Kesimpulan</h2>
+
+    <h2 id="kesimpulan" class="fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_016.webp" alt="" class="furina-icon">
+      6. Kesimpulan
+    </h2>
     <p class="fade-in">Secara keseluruhan, bayam cabut (<i>Amaranthus tricolor L.</i>) merupakan pilihan sayuran yang sangat praktis bagi petani maupun hobiis tanaman di rumah. Dengan waktu panen yang sangat singkat (sekitar 3-4 minggu), perawatan yang sederhana, dan manfaat kesehatan yang sangat tinggi bagi pertumbuhan, bayam cabut layak menjadi menu wajib harian dalam pola makan sehat keluarga Indonesia.</p>
 
     <div class="shop-box fade-in" id="belanja">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_018.webp" alt="" class="shop-furina">
       <h3 style="margin-top:0; color:#0277bd; font-size: 1.2rem;">🛒 Rekomendasi Belanja</h3>
       <p>Dukung kreativitas saya dengan mengecek berbagai produk digital menarik, barang-barang viral, dan kebutuhan lainnya di etalase pilihan saya!</p>
-      <a href="https://lynk.id/reivalavandy20" target="_blank" class="shop-btn">Cek Produk Pilihan Di Sini 🚀</a>
+      <a href="https://lynk.id/reivalavandy20" target="_blank" rel="noopener noreferrer" class="shop-btn">Cek Produk Pilihan Di Sini 🚀</a>
     </div>
 
     <div class="footer fade-in">
+      <img src="https://data.chpic.su/stickers/c/Chibi_Furina/Chibi_Furina_020.webp" alt="" class="footer-furina">
       <b>TUGAS TEMA 3 - PRAKARYA</b><br>
       <b>KELAS 8E</b><br>
       <div style="margin-top: 10px; font-size: 0.9rem;">
         1. Afifah Salsabila Dwi Putri (01)<br>
         2. Anggita Winahyu (04)<br>
-        3. Reival Avandy Priramadhan 😎 🫪 (23)<br>
+        3. Reival Avandy Priramadhan (23)<br>
         4. Hanif Cahya Ramadhan (15)
+      </div>
+      <div style="margin-top: 16px; font-size: 0.75rem; color: var(--furina-blue-tua); opacity: 0.8;">
+        <span class="sparkle">✨</span> Stiker Furina by Genshin Impact <span class="sparkle">✨</span>
       </div>
     </div>
   </div>
@@ -186,28 +345,46 @@
 
     function toggleTheme() {
       const body = document.body;
+      const btn = document.querySelector('.theme-toggle');
       if (body.getAttribute('data-theme') === 'dark') {
         body.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
+        btn.textContent = '🌙';
       } else {
         body.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        btn.textContent = '☀️';
       }
     }
 
-    if (localStorage.getItem('theme') === 'dark') document.body.setAttribute('data-theme', 'dark');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    const startMusic = () => { if (!musicStarted) { music.play(); musicStarted = true; } };
-    ['click', 'touchstart', 'scroll'].forEach(evt => window.addEventListener(evt, startMusic, { once: true }));
+    // LOGIKA MUSIK LEBIH STABIL
+    const startMusic = () => {
+      if (!musicStarted) {
+        music.volume = 0.4;
+        music.play().then(() => {
+          musicStarted = true;
+        }).catch((e) => {
+          console.log("Autoplay dicegah browser, perlu interaksi.");
+        });
+      }
+    };
 
-    document.addEventListener("visibilitychange", function() {
-      if (document.hidden) { music.pause(); } else { if (musicStarted) music.play(); }
-    });
+    // Trigger musik di interaksi pertama apa pun
+    ['click', 'touchstart', 'scroll', 'mouseover'].forEach(evt => 
+      window.addEventListener(evt, startMusic, { once: true })
+    );
+
+    // Dihapus fungsi auto-pause visibilitychange agar musik tidak terputus saat scroll cepat atau ganti aplikasi ringan
   </script>
 </body>
 </html>
